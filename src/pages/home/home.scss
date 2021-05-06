@@ -1,0 +1,14 @@
+.container {
+	width: 1000px;
+	max-width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+.result__box {
+	width: 100%;
+	height: 200px;
+}
