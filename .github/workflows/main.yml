@@ -42,7 +42,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/lottery:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/lottery:main
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
@@ -60,4 +60,5 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            echo "start run docker"
+            docker pull dongsanjin/main
+            docker run -rm -v /usr/local/nginx/ssl:/etc/nginx/ssl -d dongsanjin/lottery:main
