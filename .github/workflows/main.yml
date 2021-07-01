@@ -61,4 +61,4 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             docker pull dongsanjin/main
-            docker run -rm -v /usr/local/nginx/ssl:/etc/nginx/ssl -d dongsanjin/lottery:main
+            docker run --rm -v /usr/local/nginx/ssl:/etc/nginx/ssl -d dongsanjin/lottery:main
