@@ -11,7 +11,7 @@ RUN npm run build
 
 FROM nginx:stable-alpine
 
-EXPOSE 80
+EXPOSE 3001
 
 RUN mkdir -p /etc/nginx/ssl
 

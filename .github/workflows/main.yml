@@ -22,7 +22,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Check Out Repo 
+      - name: Check Out Repo
         uses: actions/checkout@v2
 
       - name: Login to Docker Hub
@@ -60,5 +60,5 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            docker pull dongsanjin/main
-            docker run --rm -v /usr/local/nginx/ssl:/etc/nginx/ssl -d dongsanjin/lottery:main
+            docker pull dongsanjin/lottery:main
+            docker run --rm -v /usr/local/nginx/ssl:/etc/nginx/ssl -p:3001:80 -d dongsanjin/lottery:main
