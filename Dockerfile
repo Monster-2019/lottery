@@ -1,16 +1,13 @@
 FROM node:lts-alpine as builder
 
-RUN mkdir -p /app \
-    mkdir -p /dist
+RUN mkdir -p /app 
 WORKDIR /app
 
 COPY ./package.json ./
 RUN npm install
 
 COPY . .
-RUN npm run build 
-
-COPY ./build /dist
+RUN npm install && npm run build 
 
 FROM nginx:stable-alpine
 
@@ -19,4 +16,4 @@ EXPOSE 80
 RUN mkdir -p /etc/nginx/ssl
 
 COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /dist /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
