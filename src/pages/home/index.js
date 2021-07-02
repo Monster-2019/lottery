@@ -22,7 +22,7 @@ function Home () {
             setSelectError('请输入多个选项')
         } else {
             setSelectError('')
-            setSesultText('')
+            setSesultText('结果马上揭晓')
             let timer = setInterval(function () {
                 let index = Math.floor(Math.random() * (len - 1))
                 setResult(selectL[index])
