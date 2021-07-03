@@ -13,7 +13,7 @@ FROM nginx:stable-alpine
 
 EXPOSE 3001
 
-RUN mkdir -p /etc/nginx/ssl
+RUN mkdir -p /build
 
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/build /build
