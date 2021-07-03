@@ -13,7 +13,7 @@ FROM nginx:stable-alpine
 
 EXPOSE 3001
 
-RUN mkdir -p /build
+RUN mkdir -p /lottery
 
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=builder /app/build /build
+COPY --from=builder /app/build /lottery
