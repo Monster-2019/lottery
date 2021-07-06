@@ -62,4 +62,4 @@ jobs:
           script: |
             docker stop lottery
             docker pull dongsanjin/lottery:main
-            docker run --rm -p:3001:80 -d --name lottery dongsanjin/lottery:main
+            docker run --rm -p 3001:80 -d --name lottery dongsanjin/lottery:main
